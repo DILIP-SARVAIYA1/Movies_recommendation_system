@@ -4,7 +4,8 @@ export const validation = (email, password) => {
   );
   const checkedPassword =
     /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password);
-  if (!checkedEmail) return "Email ID is not valid";
-  if (!checkedPassword) return "Password is not valid";
+
+  if (!checkedEmail) return "* Email ID is not valid";
+  if (!checkedPassword) return "* Password is not valid";
   return null;
 };
