@@ -9,3 +9,12 @@ export const SUPPORTED_LANGUAGE = [
 ];
 export const USER_PROFILE_URL =
   "https://source.unsplash.com/random/200x200?sig=1";
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTk2Zjc4MmMyOGI0M2JlMmY4YTI2ODI4MGZkMDJjOCIsInN1YiI6IjY1OTBmZjA3YTU4OTAyNzFlYjk2MGQ0NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rgtuq2_5rfXBrGjyqlx4SJH9Klgb2PDAaoD3SL6_Kyw",
+  },
+};
