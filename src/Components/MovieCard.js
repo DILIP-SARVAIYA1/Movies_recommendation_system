@@ -22,14 +22,12 @@ const MovieCard = ({ data }) => {
     getMovieVideos(id);
   };
   return (
-    <div>
-      <img
-        className="w-32 rounded-md m-4 cursor-pointer"
-        src={IMG_CDN + poster_path}
-        alt="Movies_poster"
-        onClick={getMoviesVideos}
-      />
-    </div>
+    <img
+      className="w-24 md:w-32 rounded-md m-4 cursor-pointer hover:scale-105 shadow-md shadow-gray-800"
+      src={IMG_CDN + poster_path}
+      alt="Movies_poster"
+      onClick={getMoviesVideos}
+    />
   );
 };
 

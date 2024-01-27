@@ -1,14 +1,16 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ title, movies }) => {
   return (
-    <div className="flex">
-      <h1>Title</h1>
-      <div className="flex flex-wrap justify-around md:flex-nowrap  overflow-x-auto">
-        {movies?.map((movie) => (
-          <MovieCard key={movie?.id} data={movie} />
-        ))}
+    <div className="relative -top-30 m-4 ">
+      <h1 className="text-2xl ml-4">{title}</h1>
+      <div className="flex overflow-x-scroll">
+        <div className="flex md:flex-nowrap ">
+          {movies?.map((movie) => (
+            <MovieCard key={movie?.id} data={movie} />
+          ))}
+        </div>
       </div>
     </div>
   );

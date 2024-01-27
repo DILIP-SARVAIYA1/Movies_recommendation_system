@@ -7,8 +7,31 @@ const SecondaryContainer = () => {
 
   return (
     allMovies && (
-      <div className="flex">
-        <MovieList movies={allMovies?.nowPlayingMovies} />
+      <div className="text-white bg-black -my-6">
+        <div className="my-4">
+          <MovieList
+            title={"Now Playing Movies"}
+            movies={allMovies?.nowPlayingMovies}
+          />
+        </div>
+        <div className="py-3">
+          <MovieList
+            title={"Top Rated Movies"}
+            movies={allMovies?.topRatedMovies}
+          />
+        </div>
+        <div className="py-3">
+          <MovieList
+            title={"UpComing Movies"}
+            movies={allMovies?.upComingMovies}
+          />
+        </div>
+        <div className="py-6">
+          <MovieList
+            title={"Popular Movies"}
+            movies={allMovies?.popularMovies}
+          />
+        </div>
       </div>
     )
   );
