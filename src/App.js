@@ -4,6 +4,7 @@ import appStore from "./Store/appStore";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Browse from "./Components/Browse";
 import LogIn from "./Components/LogIn";
+import Watch from "./Components/Watch";
 
 function App() {
   return (
@@ -22,11 +23,15 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LogIn />,
+        element: <Browse />, //LOGIN PAGE
       },
       {
         path: "/browse",
         element: <Browse />,
+      },
+      {
+        path: "/watch",
+        element: <Watch />,
       },
     ],
   },

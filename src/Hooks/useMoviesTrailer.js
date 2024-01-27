@@ -1,7 +1,10 @@
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../Utils/constants";
 import { useEffect } from "react";
-import { addMovieTrailer } from "../Store/moviesSlice";
+import {
+  addAllNowPlayingMoviesVideos,
+  addMovieTrailer,
+} from "../Store/moviesSlice";
 
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
@@ -14,6 +17,7 @@ const useMovieTrailer = (movieId) => {
     );
     const json = await data.json();
     // console.log(json);
+
     const filterData = json?.results?.filter(
       (video) => video.type === "Trailer"
     );
