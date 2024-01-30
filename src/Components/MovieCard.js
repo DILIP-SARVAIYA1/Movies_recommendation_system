@@ -23,7 +23,7 @@ const MovieCard = ({ data }) => {
   };
   return (
     <img
-      className="w-24 md:w-32 rounded-md m-4 cursor-pointer hover:scale-105 shadow-md shadow-gray-800"
+      className="w-24 md:w-32 rounded-md mr-6 my-6 cursor-pointer hover:scale-105 shadow-md shadow-gray-800"
       src={IMG_CDN + poster_path}
       alt="Movies_poster"
       onClick={getMoviesVideos}
