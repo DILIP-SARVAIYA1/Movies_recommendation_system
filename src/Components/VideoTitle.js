@@ -4,7 +4,7 @@ import { shortString } from "../Utils/randomNumber";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="py-[5%] md:py-[11%]  px-5 md:px-28 text-white bg-gradient-to-t from-black -z-10">
+    <div className="md:py-[10%] pb-8 px-4 md:px-8 text-white bg-gradient-to-t from-black -z-10">
       <h1 className="font-bold text-sm md:text-3xl md:my-6">
         {shortString(title, 40)}
       </h1>
