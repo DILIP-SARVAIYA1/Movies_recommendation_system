@@ -7,13 +7,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../Store/userSlice";
+import languageConfig from "../Utils/languageConfig";
 
 const LogIn = () => {
   const [errMassage, setErrMassage] = useState(null);
   const [isSignIn, setIsSignIn] = useState(true);
   const dispatch = useDispatch();
+  const langKey = useSelector((store) => store.config?.lang);
   const emailValue = useRef(null);
   const passwordValue = useRef(null);
   const nameValue = useRef(null);
@@ -92,32 +94,34 @@ const LogIn = () => {
           alt="App Background"
         />
       </div>
-      <div className="w-4/5 md:w-1/4 mx-auto mt-[10%] md:mt-[1%] bg-black bg-opacity-80 shadow-2xl shadow-gray-600 rounded-lg">
+      <div className="w-11/12 md:w-1/4 mx-auto mt-[10%] md:mt-[1%] bg-black bg-opacity-80 shadow-2xl shadow-gray-600 rounded-lg">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="flex flex-col p-4">
             <h1 className="text-3xl text-white mx-4 my-5">
-              {isSignIn ? "Sign In" : "Sign Up"}
+              {isSignIn
+                ? languageConfig[langKey].signIn
+                : languageConfig[langKey].signUp}
             </h1>
             {!isSignIn && (
               <input
                 ref={nameValue}
                 className="p-4 m-4 text-white bg-gray-500 bg-opacity-20 outline-none rounded-lg border border-gray-700"
                 type="text"
-                placeholder="Enter Your Name"
+                placeholder={languageConfig[langKey].namePlaceHolder}
                 required
               />
             )}
             <input
               ref={emailValue}
               className="p-4 m-4 text-white bg-gray-500 bg-opacity-20 outline-none rounded-lg border border-gray-700"
-              placeholder="Enter Your Email"
+              placeholder={languageConfig[langKey].emailPlaceHolder}
               type="text"
               required
             />
             <input
               ref={passwordValue}
               className="p-4 m-4 text-white bg-gray-500 bg-opacity-20 outline-none rounded-lg border border-gray-700"
-              placeholder="Enter Your Password"
+              placeholder={languageConfig[langKey].passwordPlaceHolder}
               type="password"
               required
             />
@@ -126,14 +130,14 @@ const LogIn = () => {
                 className="bg-green-700 hover:bg-green-800 text-white font-bold p-4 m-4 rounded-md"
                 onClick={handleValidation}
               >
-                Sign In
+                {languageConfig[langKey].signIn}
               </button>
             ) : (
               <button
                 className="bg-red-700 hover:bg-red-800 text-white font-bold p-4 m-4 rounded-md"
                 onClick={handleValidation}
               >
-                Sign Up
+                {languageConfig[langKey].signUp}
               </button>
             )}
 
@@ -144,9 +148,8 @@ const LogIn = () => {
               onClick={toggleSignInForm}
             >
               {!isSignIn
-                ? "Already user? Sign In "
-                : "New to Netflix? Sign Up "}
-              now.
+                ? languageConfig[langKey].alreadyUser
+                : languageConfig[langKey].newToNetflix}
             </p>
           </div>
         </form>

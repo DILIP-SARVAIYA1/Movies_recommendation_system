@@ -23,7 +23,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Browse />, //LOGIN PAGE
+        element: <LogIn />, //LOGIN PAGE
       },
       {
         path: "/browse",
