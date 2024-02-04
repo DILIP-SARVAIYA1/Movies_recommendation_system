@@ -57,7 +57,7 @@ const Header = () => {
   return (
     <div className="bg-gradient-to-b from-black flex justify-between items-center py-2 md:px-24 z-50 pr-2">
       <div>
-        <a href="/">
+        <a href="/browse">
           <img
             className="w-28 md:w-48 cursor-pointer"
             src={APP_LOGO}
