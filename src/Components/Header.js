@@ -54,7 +54,7 @@ const Header = () => {
   }, []);
   return (
     <div className="bg-gradient-to-b from-black flex justify-between items-center py-2 md:px-24 z-50">
-      <div className="">
+      <div>
         <a href="/">
           <img
             className="w-28 md:w-48 cursor-pointer"
