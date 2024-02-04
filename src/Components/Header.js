@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { addUser, removeUser } from "../Store/userSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setShowHideGptSearch } from "../Store/gptSlice";
 import { changeLanguage } from "../Store/configSlice";
 import languageConfig from "../Utils/languageConfig";
@@ -15,6 +15,8 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const langKey = useSelector((store) => store.config?.lang);
+  const showHideGptSearch = useSelector((store) => store.gpt.showHideGptSearch);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -53,7 +55,7 @@ const Header = () => {
     return () => unsubscribe;
   }, []);
   return (
-    <div className="bg-gradient-to-b from-black flex justify-between items-center py-2 md:px-24 z-50">
+    <div className="bg-gradient-to-b from-black flex justify-between items-center py-2 md:px-24 z-50 pr-2">
       <div>
         <a href="/">
           <img
@@ -64,19 +66,23 @@ const Header = () => {
         </a>
       </div>
       <div className="flex items-center gap-2">
-        {/* <button
-          className="bg-red-700 hover:bg-red-800 py-1 px-1 md:px-4 rounded-md text-white shadow-md shadow-gray-800"
-          onClick={handleGptSearch}
-        >
-          Search
-        </button> */}
+        {user && (
+          <button
+            className="bg-red-700 hover:bg-red-800 py-1 px-1 md:px-4 rounded-md text-white shadow-md shadow-gray-800 text-xs md:text-base"
+            onClick={handleGptSearch}
+          >
+            {showHideGptSearch
+              ? languageConfig[langKey].gptSearchBarSearchBtnString2
+              : languageConfig[langKey].gptSearchBarSearchBtnString}
+          </button>
+        )}
         <span className="text-gray-200 md:scale-125">{langLogoSvg}</span>
         <select
-          className="py-1 px-1 bg-gray-600 bg-opacity-60 text-gray-200 rounded-md border border-gray-500 outline-none"
+          className="py-1 px-1 bg-gray-600 bg-opacity-60 text-gray-200 text-xs md:text-base rounded-md border border-gray-500 outline-none"
           onChange={handleLanguageChange}
         >
-          {SUPPORTED_LANGUAGE.map((lang) => (
-            <option key={lang.identifier} value={lang?.identifier}>
+          {SUPPORTED_LANGUAGE?.map((lang) => (
+            <option key={lang?.identifier} value={lang?.identifier}>
               {lang.name}
             </option>
           ))}
@@ -84,12 +90,12 @@ const Header = () => {
         {user && (
           <div className="flex items-center gap-2">
             <img
-              className="w-8 rounded-full "
+              className="w-6 md:w-8 rounded-full "
               src={user.photoURL}
               alt="User Img"
             />
             <button
-              className="bg-red-700 hover:bg-red-800 py-1 px-1 md:px-4 rounded-md text-white shadow-md shadow-gray-800"
+              className="bg-red-700 hover:bg-red-800 py-1 px-1 md:px-4 rounded-md text-white shadow-md shadow-gray-800 text-xs md:text-base"
               onClick={handleSignOut}
             >
               {languageConfig[langKey].signOut}

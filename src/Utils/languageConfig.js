@@ -12,6 +12,9 @@ const languageConfig = {
     validationName: "Name is not valid",
     validationEmail: "* Email ID is not valid",
     validationPassword: "* Password is not valid",
+    gptSearchBarInputPlaceHolder: "What would you like to watch today?",
+    gptSearchBarSearchBtnString: "Search",
+    gptSearchBarSearchBtnString2: "Home",
   },
   hindi: {
     signIn: "साइन इन",
@@ -25,6 +28,9 @@ const languageConfig = {
     validationName: "नाम मान्य नहीं है",
     validationEmail: "* ईमेल आईडी मान्य नहीं है",
     validationPassword: "* पासवर्ड मान्य नहीं है",
+    gptSearchBarInputPlaceHolder: "आज आप क्या देखना चाहेंगे?",
+    gptSearchBarSearchBtnString: "खोज",
+    gptSearchBarSearchBtnString2: "घर",
   },
 };
 
