@@ -25,3 +25,5 @@ export const YOUTUBE_API_URL =
   "https://youtube.googleapis.com/youtube/v3/thumbnails/set?key=" +
   MY_GOOGLE_KEY +
   "&videoId=";
+
+export const openAiKey = "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";
