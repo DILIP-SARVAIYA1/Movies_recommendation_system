@@ -26,4 +26,4 @@ export const YOUTUBE_API_URL =
   MY_GOOGLE_KEY +
   "&videoId=";
 
-export const openAiKey = "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";
+export const openAiKey = "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";
