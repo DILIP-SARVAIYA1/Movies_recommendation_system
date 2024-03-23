@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { addUser, removeUser } from "../Store/userSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { setShowHideGptSearch } from "../Store/gptSlice";
 import { changeLanguage } from "../Store/configSlice";
 import languageConfig from "../Utils/languageConfig";
@@ -52,18 +52,18 @@ const Header = () => {
         navigate("/");
       }
     });
-    return () => unsubscribe;
+    return () => unsubscribe();
   }, []);
   return (
     <div className="bg-gradient-to-b from-black flex justify-between items-center py-2 md:px-24 z-50 pr-2">
       <div>
-        <a href="/browse">
+        <Link to={"/browse"}>
           <img
             className="w-28 md:w-48 cursor-pointer"
             src={APP_LOGO}
             alt="Background Img"
           />
-        </a>
+        </Link>
       </div>
       <div className="flex items-center gap-2">
         {user && (
