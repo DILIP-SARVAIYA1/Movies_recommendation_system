@@ -1,4 +1,4 @@
-export const MY_GOOGLE_KEY = "AIzaSyB8jfUtGqDzM4Yr114D-P1UH1niWVXVlW4"; //"AIzaSyB8jfUtGqDzM4Yr114D-P1UH1niWVXVlW4";
+export const MY_GOOGLE_KEY = "AIzaSyB8jfUtGqDzM4Yr114D-P1UH1niWVXVlW4";
 export const APP_BG_IMG =
   "https://assets.nflxext.com/ffe/siteui/vlv3/16006346-87f9-4226-bc25-a1fb346a2b0c/9662d0fd-0547-4665-b887-771617268815/IN-en-20240115-popsignuptwoweeks-perspective_alpha_website_large.jpg";
 export const APP_LOGO =
@@ -25,5 +25,3 @@ export const YOUTUBE_API_URL =
   "https://youtube.googleapis.com/youtube/v3/thumbnails/set?key=" +
   MY_GOOGLE_KEY +
   "&videoId=";
-
-export const openAiKey = "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";

@@ -63,7 +63,10 @@ const Header = () => {
         {user && (
           <button
             className="bg-red-700 hover:bg-red-800 py-1 px-1 md:px-4 rounded-md text-white shadow-md shadow-gray-800 text-xs md:text-base"
-            onClick={handleGptSearch}
+            onClick={() => {
+              handleGptSearch();
+              navigate("/browse");
+            }}
           >
             {showHideGptSearch
               ? languageConfig[langKey].gptSearchBarSearchBtnString2

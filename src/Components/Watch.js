@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { randomInt } from "../Utils/randomNumber";
 
 const Watch = () => {
   const videosData = useSelector(
@@ -9,10 +8,6 @@ const Watch = () => {
   if (videosData === null) {
     return;
   }
-
-  const length = videosData?.length;
-  const rndInt = randomInt(0, length - 1);
-
   return (
     videosData && (
       <div className="absolute bg-black bg-opacity-90 top-0 pt-16 md:pt-[8%] -z-10 w-full">
@@ -22,7 +17,7 @@ const Watch = () => {
             className="aspect-video w-full md:w-3/5 mx-auto shadow-2xl"
             src={
               "https://www.youtube.com/embed/" +
-              videosData[rndInt]?.key +
+              videosData[0]?.key +
               "?&autoplay=1&mute=1&&showInfo=0&loop=1"
             }
             title="YouTube video player"

@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import languageConfig from "../Utils/languageConfig";
-import openai from "../Utils/openAi";
 import { API_OPTIONS } from "../Utils/constants";
 import { addGptSearchMovies } from "../Store/gptSlice";
 
@@ -14,31 +13,19 @@ const GptSearchBar = () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
         movie +
-        "&include_adult=false&language=en-US&page=1",
+        "&include_adult=false&&page=1",
       API_OPTIONS
     );
     const json = await data.json();
     return json;
   };
-  const gptQuery =
-    // "act as a movies recommendation system and suggest some movie for the query" +
-    "give movies names as per this prompt:" +
-    searchText?.current?.value +
-    ". only give me name of 5 movie, comma separated like the example result given ahead. example result: solay,jawan,tiger,gunda raj,c company";
 
   const handleGptSearch = async () => {
-    const gptResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
-    });
-
-    const data = gptResults?.choices[0]?.message?.content.split(",");
-    // console.log(data);
-    const gptData = data.map((movie) => tmdbMovieResult(movie));
+    const nData = [searchText?.current?.value];
+    const gptData = nData.map((movie) => tmdbMovieResult(movie));
     const resolveResults = await Promise.all(gptData);
-    // console.log(resolveResults);
     dispatch(
-      addGptSearchMovies({ moviesNames: data, moviesResult: resolveResults })
+      addGptSearchMovies({ moviesNames: nData, moviesResult: resolveResults })
     );
   };
 
